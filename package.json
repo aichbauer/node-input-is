@@ -33,7 +33,7 @@
     "require": "babel-register",
     "babel": "inherit"
   },
-  "homepage": "https://github.com/rudolfsonjunior/node-git-commit-count#readme",
+  "homepage": "https://github.com/rudolfsonjunior/node-input-is#readme",
   "devDependencies": {
     "ava": "^0.18.2",
     "babel-cli": "^6.24.0",
