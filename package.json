@@ -1,0 +1,51 @@
+{
+  "name": "node-input-is",
+  "version": "0.0.1",
+  "description": "Simple input validation",
+  "main": "build.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "nyc ava",
+    "lint": "eslint index.js",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "prepublish": "npm run babel",
+    "babel": "babel index.js -o build.js",
+    "prepush": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudolfsonjunior/node-input-is.git"
+  },
+  "keywords": [
+    "form",
+    "validation",
+    "input",
+    "valid",
+    "is",
+    "input-is"
+  ],
+  "license": "MIT",
+  "author": "Lukas Aichbauer <rudolfson.junior@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/rudolfsonjunior/node-input-is/issues"
+  },
+  "ava": {
+    "require": "babel-register",
+    "babel": "inherit"
+  },
+  "homepage": "https://github.com/rudolfsonjunior/node-git-commit-count#readme",
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-cli": "^6.24.0",
+    "babel-preset-env": "^1.2.2",
+    "coveralls": "^2.12.0",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "husky": "^0.13.2",
+    "nyc": "^10.1.2"
+  },
+  "dependencies": {
+    "moment": "^2.18.1"
+  }
+}
