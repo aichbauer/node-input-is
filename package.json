@@ -1,5 +1,5 @@
 {
-  "name": "node-input-is",
+  "name": "input-is",
   "version": "0.0.1",
   "description": "Simple input validation",
   "main": "build.js",
