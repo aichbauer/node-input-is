@@ -3,5 +3,10 @@ node_modules
 npm-debug.log
 coverage
 
+.babelrc
+.eslintrc
+.travis.yml
+yarn.lock
+
 index.js
 test.js
