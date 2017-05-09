@@ -2,6 +2,12 @@ import test from 'ava';
 
 import inputIs from './index';
 
+const inputIs2 = require('./index');
+
+test('check if require works w/o default', (t) => {
+  t.is(inputIs2.email('lukas'), false);
+});
+
 test('check if the input is a valid date format', (t) => {
   t.is(inputIs.date('date'), false);
   t.is(inputIs.date('2017'), false);
