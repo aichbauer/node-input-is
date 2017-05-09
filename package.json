@@ -46,6 +46,7 @@
     "nyc": "^10.1.2"
   },
   "dependencies": {
+    "babel-plugin-add-module-exports": "^0.2.1",
     "moment": "^2.18.1"
   }
 }

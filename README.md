@@ -30,7 +30,7 @@ The return value is always a `boolean`, e.g. `true` or `false`.
 Here is a litte example:
 
 ```js
-import inputIs from 'input-is';
+import inputIs from 'input-is'; // const inputIs = require('input-is');
 
 inputIs.email('hello'); // false
 inputIs.email('rudolfson.junior@gmail.com'); // true
