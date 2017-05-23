@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rudolfsonjunior/node-input-is.git"
+    "url": "git+https://github.com/aichbauer/node-input-is.git"
   },
   "keywords": [
     "form",
@@ -25,15 +25,15 @@
     "input-is"
   ],
   "license": "MIT",
-  "author": "Lukas Aichbauer <rudolfson.junior@gmail.com>",
+  "author": "Lukas Aichbauer <l.aichbauer@gmail.com>",
   "bugs": {
-    "url": "https://github.com/rudolfsonjunior/node-input-is/issues"
+    "url": "https://github.com/aichbauer/node-input-is/issues"
   },
   "ava": {
     "require": "babel-register",
     "babel": "inherit"
   },
-  "homepage": "https://github.com/rudolfsonjunior/node-input-is#readme",
+  "homepage": "https://github.com/aichbauer/node-input-is#readme",
   "devDependencies": {
     "ava": "^0.18.2",
     "babel-cli": "^6.24.0",
