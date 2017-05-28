@@ -1,7 +1,7 @@
 # input-is
 
-[![Build Status](https://travis-ci.org/rudolfsonjunior/node-input-is.svg?branch=master)](https://travis-ci.org/rudolfsonjunior/node-input-is)
-[![Coverage Status](https://coveralls.io/repos/github/rudolfsonjunior/node-input-is/badge.svg?branch=master)](https://coveralls.io/github/rudolfsonjunior/node-input-is?branch=master)
+[![Build Status](https://travis-ci.org/aichbauer/node-input-is.svg?branch=master)](https://travis-ci.org/aichbauer/node-input-is)
+[![Coverage Status](https://coveralls.io/repos/github/aichbauer/node-input-is/badge.svg?branch=master)](https://coveralls.io/github/aichbauer/node-input-is?branch=master)
 
 > Simple input validation
 
