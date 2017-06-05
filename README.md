@@ -33,7 +33,7 @@ Here is a litte example:
 import inputIs from 'input-is'; // const inputIs = require('input-is');
 
 inputIs.email('hello'); // false
-inputIs.email('rudolfson.junior@gmail.com'); // true
+inputIs.email('example@mail.com'); // true
 ```
 
 **Functions:**
