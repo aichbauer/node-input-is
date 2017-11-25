@@ -4,6 +4,7 @@ dist: trusty
 node_js:
   - "4"
   - "6"
+  - "8"
 install:
   - yarn
 script: npm test
