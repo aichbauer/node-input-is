@@ -1,3 +1,9 @@
+2.0.0 - September, 06 2018
+
+* 770da33 Chore: add changelog (#3) (Lukas Aichbauer)
+* 20e2ac9 Feat: new required param format for date and datetime (#2) (Lukas Aichbauer)
+* 68b4815 CI: add node version 8 (#1) (Lukas Aichbauer)
+
 1.1.2 - June, 05 2017
 
 * 1d36fec v1.1.2 (aichbauer)
