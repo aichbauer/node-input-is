@@ -1,36 +1,97 @@
-import moment from 'moment';
+const isValidDate = (value, format) => {
+  let date;
+  let day;
+  let month;
+  let year;
+  let valid;
+
+  if (format === 'YYYY-DD-MM') {
+    date = value.split('-');
+
+    year = date[0];
+    day = date[1];
+    month = date[2];
+  } else if (format === 'YYYY-MM-DD') {
+    date = value.split('-');
+
+    year = date[0];
+    month = date[1];
+    day = date[2];
+  } else if (format === 'MM-DD-YYYY') {
+    date = value.split('-');
+
+    month = date[0];
+    day = date[1];
+    year = date[2];
+  } else if (format === 'DD-MM-YYYY') {
+    date = value.split('-');
+
+    day = date[0];
+    month = date[1];
+    year = date[2];
+  } else if (format === 'YYYY/MM/DD') {
+    date = value.split('/');
+
+    year = date[0];
+    month = date[1];
+    day = date[2];
+  } else if (format === 'YYYY/DD/MM') {
+    date = value.split('/');
+
+    year = date[0];
+    day = date[1];
+    month = date[2];
+  } else if (format === 'MM/DD/YYYY') {
+    date = value.split('/');
+
+    month = date[0];
+    day = date[1];
+    year = date[2];
+  } else if (format === 'DD/MM/YYYY') {
+    date = value.split('/');
+
+    day = date[0];
+    month = date[1];
+    year = date[2];
+  }
+
+  day = Number(day);
+  month = Number(month);
+  year = Number(year);
+
+  const dateToCheck = new Date();
+  dateToCheck.setFullYear(year, month - 1, day);
+
+  if (
+    dateToCheck.getFullYear() === year
+    && dateToCheck.getMonth() + 1 === month
+    && dateToCheck.getDate() === day
+  ) {
+    valid = true;
+  } else {
+    valid = false;
+  }
+
+  return valid;
+};
+
+const isValidTime = (value) => {
+  const regEx = /^([0-1][0-9]|2[0-3]):([0-5][0-9])(:[0-5][0-9])?$/;
+
+  return regEx.test(value);
+};
 
 const inputIs = {
-  date: (value) => {
-    if (moment(value, 'YYYY-MM-DD', true).isValid() ||
-      moment(value, 'MM-DD-YYYY', true).isValid() ||
-      moment(value, 'DD-MM-YYYY', true).isValid() ||
-      moment(value, 'YYYY/MM/DD', true).isValid() ||
-      moment(value, 'DD/MM/YYYY', true).isValid() ||
-      moment(value, 'MM/DD/YYYY', true).isValid()) {
-      return true;
-    }
+  date: (value, format) => isValidDate(value, format),
 
-    return false;
-  },
+  datetime: (value, format) => {
+    const date = value.split(' ')[0];
+    const time = value.split(' ')[1];
 
-  datetime: (value) => {
-    if (moment(value, 'YYYY-MM-DD hh:mm:ss', true).isValid() ||
-      moment(value, 'YYYY-MM-DD hh:mm', true).isValid() ||
-      moment(value, 'MM-DD-YYYY hh:mm:ss', true).isValid() ||
-      moment(value, 'MM-DD-YYYY hh:mm', true).isValid() ||
-      moment(value, 'DD-MM-YYYY hh:mm:ss', true).isValid() ||
-      moment(value, 'DD-MM-YYYY hh:mm', true).isValid() ||
-      moment(value, 'YYYY/MM/DD hh:mm:ss', true).isValid() ||
-      moment(value, 'YYYY/MM/DD hh:mm', true).isValid() ||
-      moment(value, 'DD/MM/YYYY hh:mm:ss', true).isValid() ||
-      moment(value, 'DD/MM/YYYY hh:mm', true).isValid() ||
-      moment(value, 'MM/DD/YYYY hh:mm:ss', true).isValid() ||
-      moment(value, 'MM/DD/YYYY hh:mm', true).isValid()) {
-      return true;
-    }
+    const validDate = isValidDate(date, format);
+    const validTime = isValidTime(time);
 
-    return false;
+    return (validDate && validTime);
   },
 
   email: (value) => {
@@ -71,14 +132,7 @@ const inputIs = {
     return regEx.test(value);
   },
 
-  time: (value) => {
-    if (moment(value, 'hh:mm:ss', true).isValid() ||
-      moment(value, 'hh:mm', true).isValid()) {
-      return true;
-    }
-
-    return false;
-  },
+  time: (value) => isValidTime(value),
 
   url: (value) => {
     const regEx = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/;

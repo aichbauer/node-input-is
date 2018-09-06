@@ -10,34 +10,37 @@ test('check if require works w/o default', (t) => {
 
 test('check if the input is a valid date format', (t) => {
   t.is(inputIs.date('date'), false);
-  t.is(inputIs.date('2017'), false);
-  t.is(inputIs.date('2017-12'), false);
-  t.is(inputIs.date('2017-12-100'), false);
-  t.is(inputIs.date('2017-12-12'), true);
-  t.is(inputIs.date('12-13-2017'), true);
-  t.is(inputIs.date('13-12-2017'), true);
-  t.is(inputIs.date('2017/12/12'), true);
-  t.is(inputIs.date('12/13/2017'), true);
-  t.is(inputIs.date('13/12/2017'), true);
+  t.is(inputIs.date('2017', 'YYYY'), false);
+  t.is(inputIs.date('2017-12', 'YYYY-MM'), false);
+  t.is(inputIs.date('2017-12-100', 'YYYY-MM-DD'), false);
+  t.is(inputIs.date('2017-02-30', 'YYYY-MM-DD'), false);
+  t.is(inputIs.date('2017-12-10', 'YYYY-MM-DD'), true);
+  t.is(inputIs.date('2017-12-12', 'YYYY-DD-MM'), true);
+  t.is(inputIs.date('12-13-2017', 'MM-DD-YYYY'), true);
+  t.is(inputIs.date('13-12-2017', 'DD-MM-YYYY'), true);
+  t.is(inputIs.date('2017/12/10', 'YYYY/MM/DD'), true);
+  t.is(inputIs.date('2017/12/12', 'YYYY/DD/MM'), true);
+  t.is(inputIs.date('12/13/2017', 'MM/DD/YYYY'), true);
+  t.is(inputIs.date('13/12/2017', 'DD/MM/YYYY'), true);
 });
 
 test('check if the input is a valid datetime format', (t) => {
   t.is(inputIs.datetime('date'), false);
-  t.is(inputIs.datetime('2017-12-12 12'), false);
-  t.is(inputIs.datetime('2017-12-12 12:'), false);
-  t.is(inputIs.datetime('2017-12-12 12:100'), false);
-  t.is(inputIs.datetime('2017-12-12 12:12'), true);
-  t.is(inputIs.datetime('2017-12-12 12:12:12'), true);
-  t.is(inputIs.datetime('12-13-2017 12:12'), true);
-  t.is(inputIs.datetime('12-13-2017 12:12:12'), true);
-  t.is(inputIs.datetime('13-12-2017 12:12'), true);
-  t.is(inputIs.datetime('13-12-2017 12:12:12'), true);
-  t.is(inputIs.datetime('2017/12/12 12:12'), true);
-  t.is(inputIs.datetime('2017/12/12 12:12:12'), true);
-  t.is(inputIs.datetime('12/13/2017 12:12'), true);
-  t.is(inputIs.datetime('12/13/2017 12:12:12'), true);
-  t.is(inputIs.datetime('13/12/2017 12:12'), true);
-  t.is(inputIs.datetime('13/12/2017 12:12:12'), true);
+  t.is(inputIs.datetime('2017-12-12 12', 'YYYY-MM-DD'), false);
+  t.is(inputIs.datetime('2017-12-12 12:', 'YYYY-MM-DD'), false);
+  t.is(inputIs.datetime('2017-12-12 12:100', 'YYYY-MM-DD'), false);
+  t.is(inputIs.datetime('2017-12-12 12:12', 'YYYY-MM-DD'), true);
+  t.is(inputIs.datetime('2017-12-12 12:12:12', 'YYYY-MM-DD'), true);
+  t.is(inputIs.datetime('12-13-2017 12:12', 'MM-DD-YYYY'), true);
+  t.is(inputIs.datetime('12-13-2017 12:12:12', 'MM-DD-YYYY'), true);
+  t.is(inputIs.datetime('13-12-2017 12:12', 'DD-MM-YYYY'), true);
+  t.is(inputIs.datetime('13-12-2017 12:12:12', 'DD-MM-YYYY'), true);
+  t.is(inputIs.datetime('2017/12/12 12:12', 'YYYY/MM/DD'), true);
+  t.is(inputIs.datetime('2017/12/12 12:12:12', 'YYYY/MM/DD'), true);
+  t.is(inputIs.datetime('12/13/2017 12:12', 'MM/DD/YYYY'), true);
+  t.is(inputIs.datetime('12/13/2017 12:12:12', 'MM/DD/YYYY'), true);
+  t.is(inputIs.datetime('13/12/2017 12:12', 'DD/MM/YYYY'), true);
+  t.is(inputIs.datetime('13/12/2017 12:12:12', 'DD/MM/YYYY'), true);
 });
 
 test('check if the input is a valid email', (t) => {
