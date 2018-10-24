@@ -1,3 +1,7 @@
+2.1.0 - October, 24 2018
+
+* 90b9292 Feat: add support for iso datetime (#5) (Lukas Aichbauer)
+
 2.0.0 - September, 06 2018
 
 * 770da33 Chore: add changelog (#3) (Lukas Aichbauer)
