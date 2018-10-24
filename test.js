@@ -41,6 +41,21 @@ test('check if the input is a valid datetime format', (t) => {
   t.is(inputIs.datetime('12/13/2017 12:12:12', 'MM/DD/YYYY'), true);
   t.is(inputIs.datetime('13/12/2017 12:12', 'DD/MM/YYYY'), true);
   t.is(inputIs.datetime('13/12/2017 12:12:12', 'DD/MM/YYYY'), true);
+  t.is(inputIs.datetime('2017-12-12T12', 'YYYY-MM-DD'), false);
+  t.is(inputIs.datetime('2017-12-12T12:', 'YYYY-MM-DD'), false);
+  t.is(inputIs.datetime('2017-12-12T12:100', 'YYYY-MM-DD'), false);
+  t.is(inputIs.datetime('2017-12-12T12:12', 'YYYY-MM-DD'), true);
+  t.is(inputIs.datetime('2017-12-12T12:12:12', 'YYYY-MM-DD'), true);
+  t.is(inputIs.datetime('12-13-2017T12:12', 'MM-DD-YYYY'), true);
+  t.is(inputIs.datetime('12-13-2017T12:12:12', 'MM-DD-YYYY'), true);
+  t.is(inputIs.datetime('13-12-2017T12:12', 'DD-MM-YYYY'), true);
+  t.is(inputIs.datetime('13-12-2017T12:12:12', 'DD-MM-YYYY'), true);
+  t.is(inputIs.datetime('2017/12/12T12:12', 'YYYY/MM/DD'), true);
+  t.is(inputIs.datetime('2017/12/12T12:12:12', 'YYYY/MM/DD'), true);
+  t.is(inputIs.datetime('12/13/2017T12:12', 'MM/DD/YYYY'), true);
+  t.is(inputIs.datetime('12/13/2017T12:12:12', 'MM/DD/YYYY'), true);
+  t.is(inputIs.datetime('13/12/2017T12:12', 'DD/MM/YYYY'), true);
+  t.is(inputIs.datetime('13/12/2017T12:12:12', 'DD/MM/YYYY'), true);
 });
 
 test('check if the input is a valid email', (t) => {

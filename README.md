@@ -57,6 +57,8 @@ inputIs.email('example@mail.com'); // true
 
 ### date
 
+> Note: you have to pass the format of the `date` as second parameter to the function
+
 This function validates if a form input is a valid date
 
 **return value:** boolean
@@ -68,10 +70,12 @@ This function validates if a form input is a valid date
 // MM/DD/YYYY, DD/MM/YYYY,
 
 inputIs.date('100/100/1000'); // false
-inputIs.date('12/12/2017'); // true
+inputIs.date('12/12/2017', 'DD/MM/YYYY'); // true
 ```
 
 ### datetime
+
+> Note: you have to pass the format of the `date` as second parameter to the function
 
 This function validates if a form input is a valid datetime
 
@@ -87,7 +91,7 @@ This function validates if a form input is a valid datetime
 // DD/MM/YYYY hh:mm:ss, DD/MM/YYYY hh:mm,
 
 inputIs.datetime('12/12/2017'); // false
-inputIs.datetime('12/12/2017 12:12:12'); // true
+inputIs.datetime('12/12/2017 12:12:12', 'DD/MM/YYYY'); // true
 ```
 
 ### email
