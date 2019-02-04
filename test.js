@@ -60,6 +60,8 @@ test('check if the input is a valid datetime format', (t) => {
 
 test('check if the input is a valid email', (t) => {
   t.is(inputIs.email('email.at'), false);
+  t.is(inputIs.email('nothing before email@example.at'), false);
+  t.is(inputIs.email('email@example.at, nothing after email'), false);
   t.is(inputIs.email('example@email.at'), true);
 });
 
@@ -119,8 +121,17 @@ test('check if the input is a valid time format', (t) => {
 });
 
 test('check if the input is a valid url format', (t) => {
-  t.is(inputIs.url('url.at'), false);
+  t.is(inputIs.url('nothing before https://www.google.com'), false);
+  t.is(inputIs.url('https://www.google.com, nothing after'), false);
+  t.is(inputIs.url('http://www.google.com, nothing after'), false);
+  t.is(inputIs.url('google.com'), false);
+  t.is(inputIs.url('www.google.com'), true);
+  t.is(inputIs.url('http://google.com'), true);
   t.is(inputIs.url('https://www.google.com'), true);
+  t.is(inputIs.url('http://subdomain.google.com'), true);
+  t.is(inputIs.url('https://subdomain.google.com'), true);
+  t.is(inputIs.url('https://multiple.subdomains.google.com'), true);
+  t.is(inputIs.url('http://multiple.subdomains.google.com'), true);
 });
 
 test('check if the input fits a regular expression', (t) => {
