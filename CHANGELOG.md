@@ -1,3 +1,7 @@
+2.1.1 - February, 04 2019
+
+* 600f086 Fix: regex of email and url (#6) (Lukas Aichbauer)
+
 2.1.0 - October, 24 2018
 
 * 90b9292 Feat: add support for iso datetime (#5) (Lukas Aichbauer)
